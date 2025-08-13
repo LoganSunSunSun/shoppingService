@@ -26,19 +26,21 @@ public class Product {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10, scale = 2, name="wholesale_price")
     private BigDecimal wholesalePrice;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10, scale = 2, name="retail_price")
     private BigDecimal retailPrice;
 
     @Column(nullable = false)
     private int quantity;  // current stock
 
     @CreationTimestamp
+    @Column(name="created_at")
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @Column(name="updated_at", insertable = false, updatable = true)
     private LocalDateTime updatedAt;
 
     // Getters and setters

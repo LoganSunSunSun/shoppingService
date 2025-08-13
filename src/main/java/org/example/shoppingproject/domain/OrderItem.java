@@ -20,22 +20,22 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    @Column(nullable = false)
+    @Column(name="product_id", nullable = false)
     private Long productId;  // snapshot of product id at purchase
 
-    @Column(nullable = false, length = 150)
+    @Column(name="product_name", nullable = false, length = 150)
     private String productName;  // snapshot
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name="wholesale_at_purchase", nullable = false, precision = 10, scale = 2)
     private BigDecimal wholesaleAtPurchase;  // snapshot
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name="retail_at_purchase", nullable = false, precision = 10, scale = 2)
     private BigDecimal retailAtPurchase;  // snapshot
 
     @Column(nullable = false)
     private int quantity;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name = "line_total", insertable = false, updatable = false)
     private BigDecimal lineTotal;  // retailAtPurchase * quantity
 
     // Getters and setters

@@ -1,5 +1,6 @@
 package org.example.shoppingproject.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,7 @@ public class OrderItem {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "order_id")
+    @JsonIgnore // prevent infinite recursion
     private Order order;
 
     @Column(name="product_id", nullable = false)

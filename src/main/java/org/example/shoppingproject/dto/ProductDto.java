@@ -1,11 +1,15 @@
 package org.example.shoppingproject.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.shoppingproject.domain.Product;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductDto {
     private Long id;
     private String description;

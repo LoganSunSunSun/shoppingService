@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
+
 @Repository
 @Transactional
 public class UserRepositoryImpl implements UserRepository {
@@ -68,5 +70,10 @@ public class UserRepositoryImpl implements UserRepository {
         } else {
             return (User) session.merge(user);
         }
+    }
+
+    @Override
+    public User findById(Long userId) {
+        return sessionFactory.getCurrentSession().get(User.class, userId);
     }
 }
